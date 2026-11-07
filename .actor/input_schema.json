@@ -1,0 +1,12 @@
+{
+  "title": "Transcriber input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "audioUrls": { "title": "Audio or video file URLs", "type": "array", "editor": "stringList", "description": "Direct links to audio/video files (mp3, wav, m4a, mp4, webm, ogg...). Up to 500 MB each. Page links such as YouTube watch pages are not supported.", "prefill": ["https://raw.githubusercontent.com/myunsd0417-creator/seo-ai-readiness-audit/main/samples/sample-ja.mp3"] },
+    "language": { "title": "Language", "type": "string", "editor": "select", "enum": ["auto","ja","en","zh","ko","es","fr","de","pt","it","vi","th","id"], "enumTitles": ["Auto-detect","Japanese 日本語","English","Chinese","Korean","Spanish","French","German","Portuguese","Italian","Vietnamese","Thai","Indonesian"], "default": "auto", "description": "Pick the spoken language for best accuracy, or let Whisper detect it." },
+    "maxFiles": { "title": "Max files", "type": "integer", "minimum": 1, "maximum": 200, "default": 20, "description": "Safety limit on the number of files per run." },
+    "maxMinutesPerFile": { "title": "Max minutes per file", "type": "integer", "minimum": 1, "maximum": 600, "default": 120, "description": "Longer files are skipped and not charged." }
+  },
+  "required": ["audioUrls"]
+}

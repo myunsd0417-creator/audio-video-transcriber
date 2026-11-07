@@ -1,0 +1,4 @@
+apify==4.2.0
+faster-whisper==1.2.1
+httpx
+numpy

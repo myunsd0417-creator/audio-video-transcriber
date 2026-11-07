@@ -1,0 +1,13 @@
+{
+  "actorSpecification": 1,
+  "name": "audio-video-transcriber",
+  "title": "Audio & Video Transcriber (Whisper) — Japanese & 90+ languages",
+  "description": "Transcribe audio and video files to text with OpenAI Whisper. Get full text, timestamped segments and SRT subtitles. Strong Japanese support plus 90+ languages with auto-detection. No API key needed. Pay per audio minute.",
+  "version": "0.1",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "readme": "./README.md",
+  "dockerfile": "./Dockerfile",
+  "defaultMemoryMbytes": 4096,
+  "storages": { "dataset": { "actorSpecification": 1, "views": { "overview": { "title": "Transcripts", "transformation": { "fields": ["url","language","durationSeconds","chargedMinutes","text","error"] }, "display": { "component": "table" } } } } }
+}
