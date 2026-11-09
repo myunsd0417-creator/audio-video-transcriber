@@ -2,7 +2,17 @@
   "actorOutputSchemaVersion": 1,
   "title": "Transcription results",
   "properties": {
-    "transcripts": { "type": "string", "title": "Transcripts", "description": "Full text, language, duration and timestamped segments for each file.", "template": "{{links.apiDefaultDatasetUrl}}/items" },
-    "subtitles": { "type": "string", "title": "SRT subtitles", "description": "SRT subtitle files, one per input file (SUBTITLES-1.srt, ...).", "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys" }
+    "transcripts": {
+      "type": "string",
+      "title": "Transcripts",
+      "description": "Full text, language, duration and timestamped segments for each file.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "subtitles": {
+      "type": "string",
+      "title": "SRT subtitles",
+      "description": "SRT and VTT subtitles plus a TXT transcript per file (SUBTITLES-1.srt, SUBTITLES-1.vtt, TRANSCRIPT-1.txt, ...).",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys"
+    }
   }
 }
