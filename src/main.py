@@ -51,6 +51,18 @@ def to_vtt(segments: list[dict]) -> str:
     return '\n'.join(out)
 
 
+def direct_link(url: str) -> str:
+    """Turn public Google Drive / Dropbox share links into direct download links."""
+    m = re.search(r'drive\.google\.com/(?:file/d/|open\?id=|uc\?(?:.*&)?id=)([\w-]{10,})', url)
+    if m:
+        return f'https://drive.usercontent.google.com/download?id={m.group(1)}&export=download&confirm=t'
+    if 'dropbox.com/' in url:
+        url = re.sub(r'([?&])dl=0', r'\1dl=1', url)
+        if 'dl=1' not in url and 'raw=1' not in url:
+            url += ('&' if '?' in url else '?') + 'dl=1'
+    return url
+
+
 def clean_urls(values) -> list[str]:
     urls = []
     for u in values or []:
@@ -134,6 +146,10 @@ async def main() -> None:
         event = EVENTS[quality]
 
         jobs = [{'url': u} for u in clean_urls(inp.get('audioUrls'))]
+        for j in jobs:
+            d = direct_link(j['url'])
+            if d != j['url']:
+                j['sourceUrl'], j['url'] = j['url'], d
         feeds = clean_urls(inp.get('podcastFeeds'))
         per_feed = int(inp.get('episodesPerFeed', 3))
 
@@ -195,6 +211,8 @@ async def main() -> None:
                             if word_ts and s.words:
                                 seg['words'] = [{'start': round(w.start, 2), 'end': round(w.end, 2), 'word': w.word.strip()} for w in s.words]
                             segs.append(seg)
+                        if not any(s['text'] for s in segs):
+                            raise ValueError('No speech was found in this file (not charged)')
                         await Actor.charge(event_name=event, count=minutes)
 
                         out_lang = 'en' if task == 'translate' else info.language

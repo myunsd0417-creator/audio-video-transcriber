@@ -7,7 +7,7 @@
       "title": "Audio or video file URLs",
       "type": "array",
       "editor": "stringList",
-      "description": "Direct links to audio/video files (mp3, wav, m4a, mp4, webm, ogg...). Up to 500 MB each.",
+      "description": "Direct links to audio/video files (mp3, wav, m4a, mp4, webm, ogg...), up to 500 MB each. Public Google Drive and Dropbox share links also work.",
       "prefill": [
         "https://raw.githubusercontent.com/myunsd0417-creator/seo-ai-readiness-audit/main/samples/sample-en.mp3"
       ]
