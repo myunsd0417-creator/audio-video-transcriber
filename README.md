@@ -84,6 +84,8 @@ Pay per started minute of audio that is transcribed. *Fast* mode costs half of *
 
 ---
 
+Daily tips on SEO and AI search: [follow on Bluesky](https://bsky.app/profile/mirumiru77.bsky.social).
+
 ## 日本語
 
 音声・動画ファイルやポッドキャストを、OpenAI Whisper（faster-whisper）で文字起こしします。ファイルのURL、公開のGoogleドライブ・Dropbox共有リンク、ポッドキャストのRSS、Apple Podcastsの番組リンクを入れるだけで、全文テキスト、SRT・VTT・TXTファイル、タイムスタンプ（単語単位も可）を出力します。日本語の音声に特に強く、90以上の言語を自動判定できます。「英語に翻訳」をオンにすると、どの言語の音声からでも英語のテキストと字幕を作れます。高精度モードは1分あたり0.01ドル、高速モードはその半額で、実際に文字起こしした分だけの課金です。ダウンロードに失敗したファイルや無音のファイルには課金されません。APIキーや設定は不要です（YouTube・TikTok・Instagramのページリンクは非対応です）。
